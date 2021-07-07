@@ -1,0 +1,2 @@
+# kslab-django-channels-test
+ 
