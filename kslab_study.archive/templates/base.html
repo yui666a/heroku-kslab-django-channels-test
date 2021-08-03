@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="{% block meta_description %} メタ詳細部分 {% endblock %}" />
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'kslab_study/favicon/thumb.png' %}"
+    />
+
+    <title>{% block title %}KSL 練習台{% endblock %}</title>
+    <!-- CSS -->
+    {% block CSS %}
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{% static 'kslab_study/css/style.css' %}"
+      />
+    {% endblock %}
+  </head>
+
+  <body>
+    {% block header %}
+      <header>
+        <h1>大富豪サイトへようこそ</h1>
+      </header>
+    {% endblock %}
+
+    {% block main %}
+      <main>
+        <p>デフォルトの文字列が表示されています.</p>
+        <p>それぞれのファイルでオーバーライドしてください</p>
+        この文字列はkslab_study/templates/base.html のものです<br />
+      </main>
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+      <p>&copy; 名前_____. 2021.</p>
+    </footer>
+    {% endblock %}
+
+  </body>
+</html>
