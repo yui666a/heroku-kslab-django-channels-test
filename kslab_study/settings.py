@@ -134,12 +134,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+print("本番環境")
+print("BASE_DIR", BASE_DIR)
+print(os.uname())
 
 if "自由に書き換えてください" in hostname:
     print("開発環境")
@@ -149,27 +152,22 @@ if "自由に書き換えてください" in hostname:
     DJANGO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Fetch the PROJECT_ROOT
     PROJECT_ROOT = os.path.dirname(DJANGO_ROOT)
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
 
 else:
     # 本番環境
     DEBUG = False
     print("本番環境")
     print("BASE_DIR", BASE_DIR)
-    STATIC_URL = '/static/'
-    # STATIC_URL = '/staticfiles/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', '*']
+    ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
     ASGI_APPLICATION = "kslab_study.routing.application"
     CHANNEL_LAYERS = {
         "default": {
@@ -179,5 +177,3 @@ else:
             },
         },
     }
-# import mimetypes
-# mimetypes.add_type("text/css", ".css", True)
