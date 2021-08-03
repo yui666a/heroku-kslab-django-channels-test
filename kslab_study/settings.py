@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-hostname="trekking-mac.local"
+
+hostname=["trekking-mac.local"]
 
 from pathlib import Path
 import os
@@ -139,13 +140,15 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if "COMPUTER-NAME" in hostname:
+if "自由に書き換えてください" in hostname:
+    print("開発環境")
     # デバッグ環境
     # DEBUG = True
     # Fetch Django's project directory
     DJANGO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Fetch the PROJECT_ROOT
     PROJECT_ROOT = os.path.dirname(DJANGO_ROOT)
+    STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
     DATABASES = {
         'default': {
@@ -158,6 +161,9 @@ if "COMPUTER-NAME" in hostname:
 else:
     # 本番環境
     # DEBUG = False
+    DEBUG = True
+    print("本番環境")
+    STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', '*']
@@ -170,3 +176,5 @@ else:
             },
         },
     }
+# import mimetypes
+# mimetypes.add_type("text/css", ".css", True)
