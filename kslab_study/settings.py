@@ -140,18 +140,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-print("本番環境")
-print("BASE_DIR", BASE_DIR)
-print(os.uname())
 
-if "自由に書き換えてください" in hostname:
+if os.uname()[1] in hostname:
     print("開発環境")
     # デバッグ環境
-    # DEBUG = True
+    DEBUG = True
     # Fetch Django's project directory
     DJANGO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Fetch the PROJECT_ROOT
     PROJECT_ROOT = os.path.dirname(DJANGO_ROOT)
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+    ASGI_APPLICATION = "kslab_study.routing.application"
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

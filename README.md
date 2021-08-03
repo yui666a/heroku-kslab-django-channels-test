@@ -7,3 +7,7 @@ herokuのために追加する必要があるファイル
 Procfile
 requirements.txt
 runtime.txt
+
+
+setting.py
+中にhostnameがあるので，自分のhost名を追加する
