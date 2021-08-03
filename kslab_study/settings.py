@@ -161,14 +161,14 @@ if "自由に書き換えてください" in hostname:
 
 else:
     # 本番環境
-    # DEBUG = False
-    DEBUG = True
+    DEBUG = False
     print("本番環境")
     print("BASE_DIR", BASE_DIR)
     STATIC_URL = '/static/'
     # STATIC_URL = '/staticfiles/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', '*']
     ASGI_APPLICATION = "kslab_study.routing.application"
     CHANNEL_LAYERS = {
