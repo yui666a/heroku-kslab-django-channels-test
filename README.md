@@ -7,3 +7,7 @@ herokuのために追加する必要があるファイル
 Procfile
 requirements.txt
 runtime.txt
+
+
+asgi.pyも変更か？
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kslab_study.kslab_study.settings')
