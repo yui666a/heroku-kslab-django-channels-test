@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'kslab_study.urls'
@@ -163,7 +164,9 @@ else:
     # DEBUG = False
     DEBUG = True
     print("本番環境")
+    print("BASE_DIR", BASE_DIR)
     STATIC_URL = '/static/'
+    # STATIC_URL = '/staticfiles/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', '*']
