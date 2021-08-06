@@ -18,7 +18,7 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),    # このディレクトリのviewsファイルを指定
+    # path('', views.index, name='index'),    # このディレクトリのviewsファイルを指定
     path('daihugo/', include('daihugo.urls')),  # 大富豪ディレクトリのurlsからviewsファイルを指定
     path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
