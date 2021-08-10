@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 # from socket import gethostname
 # hostname = gethostname()
-hostname=["trekking-mac.local"]
+hostname=["trekking-mac"]
 
 from pathlib import Path
 import os
@@ -135,7 +135,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
+
 
 USE_I18N = True
 
