@@ -177,7 +177,8 @@ if os.uname()[1] in hostname:
 
 else:
     # 本番環境
-    DEBUG = False
+    # DEBUG = False
+    DEBUG = True
     print("本番環境")
     print("BASE_DIR", BASE_DIR)
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
